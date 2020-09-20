@@ -13,4 +13,13 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.primary,
     borderColor: theme.primary,
   },
+  textError: {
+    textAlign: 'center',
+    marginBottom: 20,
+    fontWeight: 'bold',
+    color: theme.primary,
+  },
+  spinnerContainer: {
+    alignItems: 'center',
+  },
 });

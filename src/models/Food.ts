@@ -1,4 +1,4 @@
-import { CommonProp } from "./CommonProp";
+import {CommonProp} from './CommonProp';
 
 export enum FoodState {
   Active,
@@ -12,4 +12,9 @@ export interface Food extends CommonProp {
   description: string;
   photoUrl: string;
   State: FoodState;
+}
+
+export interface FoodCategorized {
+  data: Food;
+  title: string;
 }

@@ -25,4 +25,8 @@ export default class AuthService {
       user.password,
     );
   }
+
+  async signOut(): Promise<void> {
+    return await this.auth.signOut();
+  }
 }

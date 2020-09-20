@@ -1,28 +1,57 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+
 import LoginScreen from '../views/auth';
 import HomeScreen from '../views/home';
+import {AuthContext} from '../store/contexts/auth/AuthContext';
+import Header from '../components/common/header';
+import ProfileScreen from '../views/profile';
 
 export type RootParamList = {
   Login: undefined;
   Home: undefined;
+  Profile: undefined;
 };
 
 const Stack = createStackNavigator<RootParamList>();
 
 const Navigation = () => {
+  const {user} = useContext(AuthContext);
+
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Login"
-          options={{
-            headerShown: false,
-          }}
-          component={LoginScreen}
-        />
-        <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Navigator
+        screenOptions={{
+          header: (props) => <Header {...props} />,
+        }}>
+        {!user ? (
+          <Stack.Screen
+            name="Login"
+            options={{
+              headerShown: false,
+            }}
+            component={LoginScreen}
+          />
+        ) : (
+          <>
+            <Stack.Screen
+              name="Home"
+              options={{
+                title: 'Nueva orden',
+              }}
+              component={HomeScreen}
+            />
+            <Stack.Screen
+              name="Profile"
+              options={{
+                title: '',
+                headerShown: false,
+              }}
+              component={ProfileScreen}
+            />
+          </>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );

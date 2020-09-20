@@ -1,15 +1,17 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ViewStyle, StyleProp} from 'react-native';
 
 type Props = {
   ml?: number;
   mr?: number;
+  style?: object;
 };
 
-const Container: React.FC<Props> = ({children, ml = 10, mr = 10}) => {
+const Container: React.FC<Props> = ({children, ml = 10, mr = 10, style}) => {
   return (
     <View
       style={{
+        ...style,
         ...styles.container,
         marginLeft: ml,
         marginRight: mr,

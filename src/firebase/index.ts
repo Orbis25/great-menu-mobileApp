@@ -22,5 +22,7 @@ const Config = {
   appId,
 };
 
+firebase.setLogLevel('debug');
+
 // Initialize Firebase
 export const firebaseConfig = firebase.initializeApp(Config);
