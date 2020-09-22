@@ -1,9 +1,11 @@
 import React from 'react';
 import {Card, Text} from '@ui-kitten/components';
 import {Image, View} from 'react-native';
+import {useNavigation, NavigationProp} from '@react-navigation/native';
 
 import {styles} from './styles';
 import {Food} from '../../models/Food';
+import {RootParamList} from '../../navigation';
 
 type Props = {
   food: Food;
@@ -12,13 +14,20 @@ type Props = {
 const FoodItem: React.FC<Props> = ({food}) => {
   const {id, category, State, description, name, photoUrl, price} = food;
 
+  //navigation
+  const navigation = useNavigation<NavigationProp<RootParamList>>();
+
   const descriptionLimited = () => {
     const aditionalText = description.length > 110 ? '...' : '';
     return `${description.substr(0, 80)}${aditionalText}`;
   };
 
+  const handleFoodDetail = () => {
+    navigation.navigate('FoodDetail', {id: id ?? ''});
+  };
+
   return (
-    <Card style={styles.card}>
+    <Card onPress={handleFoodDetail} style={styles.card}>
       <View style={styles.container}>
         <Image
           source={{

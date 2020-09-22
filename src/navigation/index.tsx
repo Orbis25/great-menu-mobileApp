@@ -7,11 +7,13 @@ import HomeScreen from '../views/home';
 import {AuthContext} from '../store/contexts/auth/AuthContext';
 import Header from '../components/common/header';
 import ProfileScreen from '../views/profile';
+import FoodDetailScreen from '../views/foodDetail';
 
 export type RootParamList = {
   Login: undefined;
   Home: undefined;
   Profile: undefined;
+  FoodDetail: {id: string};
 };
 
 const Stack = createStackNavigator<RootParamList>();
@@ -50,6 +52,7 @@ const Navigation = () => {
               }}
               component={ProfileScreen}
             />
+            <Stack.Screen name="FoodDetail" component={FoodDetailScreen} />
           </>
         )}
       </Stack.Navigator>
