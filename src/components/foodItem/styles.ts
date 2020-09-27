@@ -38,4 +38,10 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  textRemove: {
+    textAlign: 'right',
+    fontWeight: 'bold',
+    borderColor: 'red',
+    color: theme.primary,
+  },
 });

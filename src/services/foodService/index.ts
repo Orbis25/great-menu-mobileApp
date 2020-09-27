@@ -25,4 +25,15 @@ export default class FoodService {
       } WHERE name LIKE '${name.toLowerCase()}%'`,
     );
   }
+
+  async findById(
+    id: string,
+  ): Promise<
+    firebase.firestore.QuerySnapshot<firebase.firestore.DocumentData>
+  > {
+    return await this.db
+      .collection(collections.foods)
+      .where('id', '==', id)
+      .get();
+  }
 }

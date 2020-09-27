@@ -13,8 +13,3 @@ export interface Food extends CommonProp {
   photoUrl: string;
   State: FoodState;
 }
-
-export interface FoodCategorized {
-  data: Food;
-  title: string;
-}

@@ -8,7 +8,7 @@ import {
 import {EvaIconsPack} from '@ui-kitten/eva-icons';
 import {LogBox} from 'react-native';
 
-import AuthProvider from './src/store/contexts/auth/AuthContext';
+import AppProvider from './src/store/contexts';
 
 LogBox.ignoreLogs(['Setting a timer']);
 
@@ -17,9 +17,9 @@ const App = () => {
     <>
       <IconRegistry icons={EvaIconsPack} />
       <UIProvider {...eva} theme={eva.light}>
-        <AuthProvider>
+        <AppProvider>
           <Navigation />
-        </AuthProvider>
+        </AppProvider>
       </UIProvider>
     </>
   );
