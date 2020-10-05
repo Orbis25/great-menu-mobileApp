@@ -109,18 +109,20 @@ const FoodDetailScreen: React.FC<Props> = ({route, navigation}) => {
               <NumericInput handler={setQuantity} counter={quantity} />
             </View>
 
-            <View>
-              <Animated.View style={[{}, animationStyle]}>
-                <Button
-                  style={styles.getButton}
-                  accessoryLeft={(props) => (
-                    <Icon {...props} name="arrow-forward" />
-                  )}
-                  onPressOut={pressOut}
-                  onPressIn={pressIn}
-                />
-              </Animated.View>
-            </View>
+            {context.orderId === '' && (
+              <View>
+                <Animated.View style={[{}, animationStyle]}>
+                  <Button
+                    style={styles.getButton}
+                    accessoryLeft={(props) => (
+                      <Icon {...props} name="arrow-forward" />
+                    )}
+                    onPressOut={pressOut}
+                    onPressIn={pressIn}
+                  />
+                </Animated.View>
+              </View>
+            )}
           </View>
         </Container>
       </Layout>

@@ -32,7 +32,7 @@ const AuthScreen = () => {
             onSelect={handleTab}>
             <Tab
               title={() => <Text style={styles.titleTab}>Iniciar sesión</Text>}>
-              <AuthForm />
+              <AuthForm /> 
             </Tab>
             <Tab title={() => <Text style={styles.titleTab}>Registrarme</Text>}>
               <RegisterForm />

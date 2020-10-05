@@ -16,4 +16,18 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: theme.white,
   },
+  rightContainer: {
+    flexDirection: 'row',
+  },
+  orderTextContainer: {
+    backgroundColor: theme.dark,
+    height: 40,
+    width: 100,
+  },
+  orderText: {
+    textAlign: 'center',
+    marginTop: 8,
+    fontWeight: 'bold',
+    color: theme.white,
+  },
 });

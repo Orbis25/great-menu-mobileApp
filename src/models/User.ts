@@ -1,3 +1,8 @@
+export enum AuthLevel {
+  Admin,
+  User,
+}
+
 export interface UserAuthVm {
   userName: string;
   password: string;
@@ -16,4 +21,11 @@ export interface UserCreateVM {
   fullName: string;
   userName: string;
   password: string;
+}
+
+export interface User {
+  fullName: string;
+  userName: string;
+  userUid: string;
+  rol: AuthLevel;
 }

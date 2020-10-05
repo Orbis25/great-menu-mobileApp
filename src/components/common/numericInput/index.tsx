@@ -34,6 +34,7 @@ const NumericInput: React.FC<Props> = ({counter, handler}) => {
         <Input
           textStyle={{textAlign: 'center'}}
           style={styles.input}
+          keyboardType="numeric"
           value={counter.toString()}
         />
       </View>
