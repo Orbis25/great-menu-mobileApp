@@ -24,13 +24,15 @@ const OrderStatusScreen = () => {
     (async () => {
       await getFoodStatus();
     })();
-  }, []);
+  }, [order?.time]);
 
   const getFoodStatus = async () => {
     try {
       const response = await new OrderService().getStatus(context.orderId);
+
       response.onSnapshot((doc) => {
-        setOrder(doc.data() as Order);
+        const model = doc.data() as Order;
+        setOrder(model);
       });
     } catch (error) {}
   };
