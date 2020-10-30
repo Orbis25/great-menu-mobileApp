@@ -38,7 +38,7 @@ const FoodProvider: React.FC<{}> = ({children}) => {
   };
 
   /**
-   * Clea the context
+   * Clear the context
    */
   const clear = () => {
     setState([]);
@@ -85,6 +85,7 @@ const FoodProvider: React.FC<{}> = ({children}) => {
   const closeOrder = async () => {
     try {
       await AsyncStorage.setItem(ASYNC_STORAGE_ACTIVE_ORDER, '');
+      clear();
       setOrderId('');
     } catch (error) {
       Alert.alert(error);

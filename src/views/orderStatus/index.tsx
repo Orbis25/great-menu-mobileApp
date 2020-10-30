@@ -24,7 +24,7 @@ const OrderStatusScreen = () => {
     (async () => {
       await getFoodStatus();
     })();
-  }, [order?.time]);
+  }, [context.orderId]);
 
   const getFoodStatus = async () => {
     try {
@@ -34,7 +34,9 @@ const OrderStatusScreen = () => {
         const model = doc.data() as Order;
         setOrder(model);
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const Awaiting = () => {
